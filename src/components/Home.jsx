@@ -13,18 +13,24 @@ const Home = () => {
                     My expertise lies in creating engaging web experiences using HTML, CSS, JavaScript, React, and Tailwind CSS. 
                     As a freelance web developer, I take pride in delivering high-quality, responsive, and user-friendly websites to my clients. 
                     </p>
-                    <div>
-                        <button className="group text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500">
-                            Portfolio
+                    <div name="homeButtons" className="flex justify-center space-x-4">
+                        <button className="group text-black w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-gray-300 to-white">
+                            Projects
                             <span className="group-hover:rotate-90 duration-300">                        
-                                <MdKeyboardArrowRight />
+                            <MdKeyboardArrowRight />
+                            </span>
+                        </button>
+                        <button className="group text-black w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-white to-gray-300">
+                            Resume
+                            <span className="group-hover:rotate-90 duration-300">                        
+                            <MdKeyboardArrowRight />
                             </span>
                         </button>
                     </div>
                 </div>
                 <div>
                     <img src={profile} alt="my profile"
-                    className="rounded-2xl mx-auto w-2/3 md:w-2/3"/>
+                    className="rounded-3xl mx-auto w-2/3 md:w-2/3"/>
                 </div>
             </div>    
         </div>
