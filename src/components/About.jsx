@@ -2,21 +2,26 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div name="about" className="w-full h-screen bg-gradient-to-b from-gray-800 to-black text-white">
+    <div name="about" className="w-full h-screen bg-gradient-to-b from-black to-gray-800 text-white">
             <div>
                 <p className="text-5xl py-9 px-4 font-bold underline underline-offset-8">About</p>
             </div>
             <div>
-                <p className="text-2xl py-4 px-4">
-                    I started my coding journey in 2019, when I first meddled around with python. That's when I created basic games
-                    such as guessing the word, etc. After that I progressively got more into making silly word games and messing 
-                    more and more with python. I knew I wanted to be a software engineer in the future. Thus, I ventured into UNSW and
-                    started my journey to learn more about coding.
+                <p className="text-1xl py-4 px-4">
+                Hi there! I'm Diwas Mainali, a passionate third-year student at the University of New South Wales (UNSW), 
+                pursuing my dream of becoming a full stack software engineer. With experience in web development, 
+                including deploying a website for a research lab at the University of Sydney (USYD), I have honed my technical 
+                skills and gained valuable insights into software development. Beyond academics, I enjoy challenging myself through 
+                chess, staying active with tennis, and creating web applications that simplify everyday tasks.
+
                 </p>
                 <br />
-                <p className="text-2xl py-4 px-4">
-                    I think learning web development got me into programming more than anything as after deploying my first chess website, 
-                    I started
+                <p className="text-1xl py-4 px-4">
+                I am a strong believer in continuous learning and collaboration, thriving on acquiring new knowledge and 
+                working alongside like-minded individuals. I am always eager to engage with others, learn from their 
+                experiences, and contribute my own perspectives to any project. If you'd like to connect, discuss opportunities, 
+                or share ideas, please reach out to me at diwas.mainali1@gmail.com or through the social media links provided above.
+                I am excited about the possibilities ahead and look forward to embarking on new challenges and collaborations.
                 </p>
             </div>
     </div>
