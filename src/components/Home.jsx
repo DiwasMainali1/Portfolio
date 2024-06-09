@@ -29,7 +29,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="flex flex-col items-center">
-                    <img src={profile} alt="my profile" className="rounded-3xl mx-auto w-2/3 md:w-2/3 border-2 border-gray-300 mb-4 shadow-lg" />
+                    <img src={profile} alt="my profile" className="rounded-3xl mx-auto w-2/3 md:w-2/3 mb-4 shadow-lg" />
                     <div className="flex space-x-4">
                         <a href="https://github.com/DiwasMainali1" target="_blank" rel="noopener noreferrer" className="hover:scale-110 duration-300 bg-gray-800 text-white px-4 py-2 rounded-full flex items-center">
                         <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
