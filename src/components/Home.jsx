@@ -3,8 +3,16 @@ import profile from "../assets/hero1.png";
 import { MdEmail } from "react-icons/md";
 import { IoMdDownload } from "react-icons/io";
 import { Link } from 'react-scroll';
+import { saveAs } from 'file-saver';
 
 const Home = () => {
+    function handleDownload() {
+        fetch(`${process.env.PUBLIC_URL}/resume.pdf`)
+          .then(response => response.blob())
+          .then(blob => {
+            saveAs(blob, 'resume.pdf');
+          });
+      }
     return (
         <div name="home" className="h-screen w-full bg-gradient-to-b from-black to-gray-800 text-white">
             <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
@@ -15,12 +23,14 @@ const Home = () => {
                     Learn more about me by exploring this portfolio!
                     </p>
                     <div name="homeButtons" className="flex justify-center space-x-4 md:justify-start">
-                        <a href="../assets/resume.pdf" download className="group hover:scale-110 duration-300 text-black w-fit px-5 py-3 my-2 flex items-center rounded-2xl bg-gradient-to-r from-gray-300 to-white">
-                            Resume
+                    <button
+                            onClick={handleDownload}
+                            className="group hover:scale-110 duration-300 text-black w-fit px-5 py-3 my-2 flex items-center rounded-2xl bg-gradient-to-r from-gray-300 to-white"
+                        >   Resume
                             <span className="px-1.5 group-hover:text-red-600 duration-300">                        
                                 <IoMdDownload />
                             </span>
-                        </a>
+                        </button>
                         <Link 
                             to="contact" 
                             smooth={true} 
