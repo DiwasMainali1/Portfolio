@@ -17,7 +17,7 @@ const Home = () => {
         <div name="home" className="h-screen w-full bg-gradient-to-b from-black to-gray-800 text-white">
             <div className="max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row">
                 <div>
-                <h2 className="text-4xl md:text-7xl font-bold text-white py-4">Welcome to my portfolio!</h2>                    
+                <h2 className="pt-24 text-4xl md:text-7xl font-bold text-white py-4">Welcome to my portfolio!</h2>                    
                 <p className="text-gray-500 py-4 max-w-md">
                     I am a passionate third-year computer science student at UNSW. As a freelance web developer, I take pride in delivering high-quality, responsive, and user-friendly websites to my clients. 
                     Learn more about me by exploring this portfolio!
