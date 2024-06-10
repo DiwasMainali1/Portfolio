@@ -3,9 +3,9 @@ import proj1 from "../assets/proj1.png";
 import proj2 from "../assets/proj3.png";
 import proj3 from "../assets/proj2.png";
 
-const Portfolio = () => {
+const Projects = () => {
   return (
-    <div name="Projects" className="py-10 w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-800 to-black text-white">
+    <div name="projects" className="py-10 w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-800 to-black text-white">
       <div className="mb-8">
         <p className="text-5xl font-bold underline underline-offset-8">Projects</p>
       </div>
@@ -57,4 +57,4 @@ const Portfolio = () => {
   )
 }
 
-export default Portfolio
+export default Projects

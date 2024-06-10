@@ -2,6 +2,7 @@ import React from "react";
 import profile from "../assets/hero1.png";
 import { MdEmail } from "react-icons/md";
 import { IoMdDownload } from "react-icons/io";
+import { Link } from 'react-scroll';
 
 const Home = () => {
     return (
@@ -20,12 +21,17 @@ const Home = () => {
                                 <IoMdDownload />
                             </span>
                         </a>
-                        <a href="mailto:diwas.mainali1@gmail.com" className="group hover:scale-110 duration-300 text-black w-fit px-4 py-3 my-2 flex items-center rounded-2xl bg-gradient-to-r from-gray-300 to-white">
+                        <Link 
+                            to="contact" 
+                            smooth={true} 
+                            duration={800} 
+                            className="group hover:scale-110 duration-300 text-black w-fit px-4 py-3 my-2 flex items-center rounded-2xl bg-gradient-to-r from-gray-300 to-white cursor-pointer"
+                            >
                             Contact Me
                             <span className="px-1.5 group-hover:text-blue-700 duration-300">                        
                                 <MdEmail />
                             </span>
-                        </a>
+                            </Link>
                     </div>
                 </div>
                 <div className="flex flex-col items-center">

@@ -15,7 +15,7 @@ const Contact = () => {
             <p>Let's connect. Feel free to reach out to me!</p>
           </div>
           <div>
-            <form method="POST" action="https://getform.io/f/your-form-endpoint" className="flex flex-col max-w-[600px] w-full">
+            <form method="POST" action="https://getform.io/f/pagxmmdb" className="flex flex-col max-w-[600px] w-full">
               <input
                 className="bg-[#ccd6f6] p-2 rounded-md focus:outline-none text-black"
                 type="text"

@@ -7,7 +7,7 @@ const About = () => {
                 <p className="text-center text-5xl py-9 px-4 font-bold underline underline-offset-8">About</p>
             </div>
             <div>
-                <p className="text-1xl py-4 px-4">
+                <p className="text-1xl py-10 px-20">
                 Hi there! I'm Diwas Mainali, a passionate third-year student at the University of New South Wales (UNSW), 
                 pursuing my dream of becoming a full stack software engineer. With experience in web development, 
                 including deploying a website for a research lab at the University of Sydney (USYD), I have honed my technical 
@@ -16,7 +16,7 @@ const About = () => {
 
                 </p>
                 <br />
-                <p className="text-1xl py-4 px-4">
+                <p className="text-1xl pb-40 px-20">
                 I am a strong believer in continuous learning and collaboration, thriving on acquiring new knowledge and 
                 working alongside like-minded individuals. I am always eager to engage with others, learn from their 
                 experiences, and contribute my own perspectives to any project. If you'd like to connect, discuss opportunities, 
