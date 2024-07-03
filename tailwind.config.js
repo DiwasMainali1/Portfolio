@@ -3,9 +3,13 @@ module.exports = {
     content: [
         "./src/**/*.{js,jsx,ts,tsx}",
       ],
-  theme: {
-    extend: {},
-  },
+      theme: {
+        extend: {
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif'],
+          },
+        },
+      },
   variants: {
     extend: {
         display: ["group-hover"],
