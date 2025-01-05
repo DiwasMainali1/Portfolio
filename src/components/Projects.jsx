@@ -7,7 +7,7 @@ import proj4 from "../assets/proj4.png";
 
 const Projects = () => {
   const projects = [
-    { name: "Piccio Lab", image: proj4, github: "https://github.com/DiwasMainali1/piccioLab", demo: "https://diwasmainali1.github.io/piccioLab" },
+    { name: "Piccio Lab", image: proj4, github: "https://github.com/DiwasMainali1/piccioLab", demo: "https://thepicciolab.netlify.app/" },
     { name: "Gambit Guru", image: proj1, github: "https://github.com/DiwasMainali1/Gambit-Guru", demo: "https://diwasmainali1.github.io/Gambit-Guru/" },
     { name: "Weather App", image: proj3, github: "https://github.com/DiwasMainali1/weather-app", demo: "https://diwasmainali1.github.io/weather-app/" },
     { name: "Task List", image: proj2, github: "https://github.com/DiwasMainali1/Task-List", demo: "https://diwasmainali1.github.io/Task-List/" },
