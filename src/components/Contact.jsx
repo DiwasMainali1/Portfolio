@@ -3,7 +3,10 @@ import { motion } from 'framer-motion';
 
 const Contact = () => {
   return (
-    <div name="contact" className="w-full min-h-screen bg-gradient-to-b from-gray-800 to-black text-white font-inter py-16">
+    <div 
+      name="contact" 
+      className="w-full min-h-screen bg-gradient-to-b from-gray-800 to-black text-white font-inter py-20" // Changed to py-20 to match Projects
+    >
       <div className="max-w-screen-lg mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

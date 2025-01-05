@@ -61,6 +61,7 @@ const NavBar = () => {
                     to={link}
                     smooth
                     duration={500}
+                    offset={-64}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer transition-colors duration-300"
                   >
                     {link.charAt(0).toUpperCase() + link.slice(1)}
