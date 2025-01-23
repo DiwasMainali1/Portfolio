@@ -11,7 +11,7 @@ const Home = () => {
         fetch(`${process.env.PUBLIC_URL}/resume.pdf`)
           .then(response => response.blob())
           .then(blob => {
-            saveAs(blob, 'resume.pdf');
+            saveAs(blob, 'diwas_CV.pdf');
           });
     }
 
