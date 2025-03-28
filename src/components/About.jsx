@@ -22,7 +22,7 @@ const About = () => {
           className="space-y-8 text-lg text-gray-300 leading-relaxed"
         >
 <p>
-  Hi! I'm Diwas Mainali, a driven third-year Computer Science student at UNSW with a passion for full-stack development. My hands-on experience includes successfully deploying a research lab website for the University of Sydney, demonstrating my ability to deliver real-world solutions. I specialize in web development and enjoy building applications that solve practical problems.
+  Hi! I'm Diwas Mainali, a driven final-year Computer Science student at UNSW with a passion for full-stack development. My hands-on experience includes successfully deploying a research lab website for the University of Sydney, demonstrating my ability to deliver real-world solutions. I specialize in web development and enjoy building applications that solve practical problems.
 </p>
 <p>
   Beyond coding, I'm an avid chess player and tennis enthusiast, activities that have sharpened my strategic thinking and competitive spirit. I thrive in collaborative environments and constantly seek opportunities to learn new technologies and best practices. I'm currently looking for opportunities to contribute my technical skills and fresh perspectives to innovative projects. Let's connect at <a href="mailto:diwas.mainali1@gmail.com" className="text-blue-400 hover:text-blue-300 transition duration-300">diwas.mainali1@gmail.com</a> to discuss how I can add value to your team.

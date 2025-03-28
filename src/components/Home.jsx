@@ -29,7 +29,7 @@ const Home = () => {
                         <span className="text-5xl md:text-7xl bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">portfolio!</span>
                     </h2>                    
                     <p className="text-gray-300 py-4 max-w-md text-lg">
-                        I am a passionate third-year computer science student at UNSW. As a freelance web developer, I take pride in delivering high-quality, responsive, and user-friendly websites to my clients. 
+                        I am a passionate final-year computer science student at UNSW. As a freelance web developer, I take pride in delivering high-quality, responsive, and user-friendly websites to my clients. 
                         Learn more about me by exploring this portfolio!
                     </p>
                     <div className="flex flex-col sm:flex-row justify-start space-y-4 sm:space-y-0 sm:space-x-4">
