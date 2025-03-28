@@ -53,7 +53,7 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 scale-[0.85]"
         >
           {projects.slice(0, 3).map((project, index) => (
             <motion.div
@@ -84,7 +84,7 @@ const Projects = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 md:w-2/3 mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:w-2/3 mx-auto scale-[0.85]"
         >
           {projects.slice(3).map((project, index) => (
             <motion.div
