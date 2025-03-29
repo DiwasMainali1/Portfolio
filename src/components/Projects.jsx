@@ -45,7 +45,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold text-center mb-12 underline underline-offset-8 decoration-blue-500"
+          className="text-5xl font-bold text-center mb-5 underline underline-offset-8 decoration-blue-500"
         >
           Projects
         </motion.h2>
