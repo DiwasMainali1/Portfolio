@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import proj1 from "../assets/proj1.png";
 import proj2 from "../assets/proj2.png";
 import proj3 from "../assets/proj3.png";
@@ -7,6 +7,17 @@ import proj4 from "../assets/proj4.png";
 import proj5 from "../assets/proj5.png";
 
 const Projects = () => {
+  const [animateProjects, setAnimateProjects] = useState(false);
+  const projectsRef = useRef(null);
+  const inView = useInView(projectsRef, { once: true, margin: "-50px" });
+
+  // Trigger animation if the projects section is in view
+  useEffect(() => {
+    if (inView) {
+      setAnimateProjects(true);
+    }
+  }, [inView]);
+
   const projects = [
     { name: "Yeld", image: proj5, github: "https://github.com/DiwasMainali1/yeld", demo: null },
     { name: "Piccio Lab", image: proj4, github: "https://github.com/DiwasMainali1/piccioLab", demo: "https://thepicciolab.netlify.app/" },
@@ -19,9 +30,7 @@ const Projects = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
+      transition: { staggerChildren: 0.3 },
     },
   };
 
@@ -30,29 +39,36 @@ const Projects = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12,
-      },
+      transition: { type: "spring", stiffness: 100, damping: 12 },
     },
   };
 
+  // Optional: if user clicks the "Projects" heading, also trigger the animation.
+  const handleActivate = () => {
+    setAnimateProjects(true);
+  };
+
   return (
-    <div name="projects" className="w-full min-h-screen bg-gradient-to-b from-gray-800 to-black text-white font-inter py-20">
+    <div
+      name="projects"
+      ref={projectsRef}
+      className="w-full min-h-screen bg-gradient-to-b from-gray-800 to-black text-white font-inter py-10"
+    >
       <div className="max-w-6xl mx-auto px-4">
         <motion.h2 
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={animateProjects ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold text-center mb-5 underline underline-offset-8 decoration-blue-500"
+          onClick={handleActivate}
+          className="text-5xl font-bold text-center mb-5 underline underline-offset-8 decoration-blue-500 cursor-pointer"
         >
           Projects
         </motion.h2>
+        {/* First row with 3 projects */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate={animateProjects ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 scale-[0.85]"
         >
           {projects.slice(0, 3).map((project, index) => (
@@ -83,7 +99,7 @@ const Projects = () => {
         <motion.div 
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          animate={animateProjects ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:w-2/3 mx-auto scale-[0.85]"
         >
           {projects.slice(3).map((project, index) => (
