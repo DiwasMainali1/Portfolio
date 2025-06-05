@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.2ab62fe4.css",
-    "main.js": "/static/js/main.6e9f9d42.js",
-    "static/media/proj4.png": "/static/media/proj4.2ead9fde0161da82d7dd.png",
-    "static/media/proj2.png": "/static/media/proj2.a22c1f57e03af62d69f2.png",
+    "main.css": "/static/css/main.db44448c.css",
+    "main.js": "/static/js/main.6062c906.js",
+    "static/media/cramandconquer.gif": "/static/media/cramandconquer.d0b06a7a247e853378fc.gif",
+    "static/media/picciolab.png": "/static/media/picciolab.2ead9fde0161da82d7dd.png",
     "static/media/hero1.png": "/static/media/hero1.53f1aa9e29e9376602f8.png",
-    "static/media/proj3.png": "/static/media/proj3.cddeba293023c9de418d.png",
-    "static/media/proj1.png": "/static/media/proj1.fb63b4db9a7c4f25eccd.png",
-    "static/media/proj5.png": "/static/media/proj5.088ec92fdd6a1c654936.png",
+    "static/media/gambitguru.png": "/static/media/gambitguru.fb63b4db9a7c4f25eccd.png",
     "index.html": "/index.html",
-    "main.2ab62fe4.css.map": "/static/css/main.2ab62fe4.css.map",
-    "main.6e9f9d42.js.map": "/static/js/main.6e9f9d42.js.map"
+    "main.db44448c.css.map": "/static/css/main.db44448c.css.map",
+    "main.6062c906.js.map": "/static/js/main.6062c906.js.map"
   },
   "entrypoints": [
-    "static/css/main.2ab62fe4.css",
-    "static/js/main.6e9f9d42.js"
+    "static/css/main.db44448c.css",
+    "static/js/main.6062c906.js"
   ]
 }
