@@ -1,33 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ArrowUpRight, Github, Linkedin } from 'lucide-react';
 
 import cramAndConquerImg from "./assets/cramandconquer.gif";
+import gridBaseImg from "./assets/GridBase.png";
 import piccioLabImg from "./assets/picciolab.png";
 import gambitGuruImg from "./assets/gambitguru.png";
 import heroImg from "./assets/hero1.png";
 
 const projects = [
   { 
-    name: "Cram and Conquer", 
-    description: "Full-stack productivity platform with real-time group study sessions, Pomodoro timers, and user analytics",
-    tech: "React • Node.js • MongoDB",
-    image: cramAndConquerImg,
-    github: "https://github.com/DiwasMainali1/cram-and-conquer", 
-    demo: "https://cramandconquer.com" 
+    name: "GridBase", 
+    description: "A full-stack Airtable clone featuring a high-performance virtualized data grid, real-time cell editing, and a dynamic, multi-filter query engine.",
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "tRPC", "Prisma"],
+    image: gridBaseImg,
+    demo: "https://gridbase-diwas.vercel.app/" 
   },
   { 
-    name: "Piccio Lab", 
-    description: "Research lab website deployed for University of Sydney",
-    tech: "React • Web Development",
+    name: "Cram and Conquer", 
+    description: "A productivity platform designed for students, offering real-time group study sessions, customizable Pomodoro timers, and insightful user analytics.",
+    tech: ["React", "Node.js", "MongoDB", "Express.js"],
+    image: cramAndConquerImg,
+    demo: "https://cramandconquer.com" 
+  },
+  {
+    name: "Piccio Lab",
+    description: "A clean and professional research lab website developed and deployed for a team at the University of Sydney, designed to be easily maintainable.",
+    tech: ["React", "JavaScript", "CSS"],
     image: piccioLabImg,
-    github: "https://github.com/DiwasMainali1/piccioLab", 
-    demo: "https://thepicciolab.netlify.app/" 
+    demo: "https://thepicciolab.netlify.app/"
   },
   { 
     name: "Gambit Guru", 
-    description: "Chess openings trainer with drag-and-drop interface and customizable training ranges",
-    tech: "JavaScript • HTML5 • CSS3",
+    description: "An interactive chess openings trainer built with a drag-and-drop interface that allows users to practice and master customizable opening lines.",
+    tech: ["JavaScript", "HTML", "CSS"],
     image: gambitGuruImg,
-    github: "https://github.com/DiwasMainali1/Gambit-Guru", 
     demo: "https://diwasmainali1.github.io/Gambit-Guru/" 
   }
 ];
@@ -35,26 +41,56 @@ const projects = [
 const NavBar = () => {
   const [activeSection, setActiveSection] = useState('home');
 
-  const scrollTo = (section) => {
-    setActiveSection(section);
-    document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    const sections = ['home', 'projects', 'about'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-30% 0px -70% 0px' }
+    );
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      sections.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) observer.unobserve(element);
+      });
+    };
+  }, []);
+
+  const scrollTo = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-black/95 backdrop-blur-sm z-50 border-b border-gray-900">
-      <div className="max-w-5xl mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
-          <div className="text-lg font-medium text-white">Diwas Mainali</div>
-          <div className="flex space-x-8">
+    <nav className="fixed top-0 w-full bg-slate-950/70 backdrop-blur-lg z-50 border-b border-slate-800/50">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex justify-between items-center h-16">
+          <span className="text-lg font-bold text-slate-200">Diwas Mainali</span>
+          <div className="hidden sm:flex items-center space-x-8">
             {['home', 'projects', 'about'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollTo(section)}
-                className={`text-sm uppercase tracking-wider transition-colors duration-200 ${
-                  activeSection === section ? 'text-white' : 'text-gray-500 hover:text-gray-300'
+                className={`relative text-sm font-medium uppercase tracking-wider transition-colors duration-300 ${
+                  activeSection === section 
+                    ? 'text-cyan-400' 
+                    : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 {section}
+                {activeSection === section && (
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-0.5 w-4 bg-cyan-400 rounded-full" />
+                )}
               </button>
             ))}
           </div>
@@ -69,28 +105,30 @@ const Home = () => {
     const link = document.createElement('a');
     link.href = '/resume.pdf'; 
     link.download = 'Diwas_Mainali_Resume.pdf';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   return (
-    <section id="home" className="min-h-screen bg-black text-white flex items-center pt-16">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-light mb-6 text-white leading-tight">
+    <section id="home" className="relative min-h-screen flex items-center">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-slate-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      <div className="max-w-7xl mx-auto px-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-100 leading-tight tracking-tighter">
               Diwas Mainali
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 mb-8 font-light">
-              Computer Science Student & Full-Stack Developer
+            <h2 className="text-xl md:text-2xl text-cyan-400 mt-3 font-medium tracking-tight">
+              Full-Stack Developer & Computer Science Student
+            </h2>
+            <p className="text-base text-slate-400 mt-6 max-w-xl leading-relaxed">
+              Final-year student at UNSW with a passion for building elegant, high-performance web applications from concept to deployment.
             </p>
-            <p className="text-lg text-gray-500 mb-12 max-w-2xl leading-relaxed">
-              Final-year CS student at UNSW passionate about building scalable web applications. 
-              Experience in React, Node.js, and MongoDB with a focus on clean, functional design.
-            </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap gap-4">
               <button
                 onClick={handleDownload}
-                className="px-6 py-3 bg-white text-black font-medium hover:bg-gray-200 transition-colors duration-200"
+                className="px-6 py-3 bg-cyan-500 text-slate-900 font-semibold rounded-md hover:bg-cyan-400 transition-colors duration-300 shadow-lg shadow-cyan-500/20"
               >
                 Download Resume
               </button>
@@ -98,26 +136,29 @@ const Home = () => {
                 href="https://github.com/DiwasMainali1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 border border-gray-700 text-white hover:border-gray-500 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-slate-800 bg-slate-900/50 text-slate-300 font-semibold rounded-md hover:bg-slate-800 hover:border-slate-700 transition-colors duration-300"
               >
-                GitHub
+                <Github size={18} /> GitHub
               </a>
               <a
                 href="https://www.linkedin.com/in/diwasmainali/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 border border-gray-700 text-white hover:border-gray-500 transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-slate-800 bg-slate-900/50 text-slate-300 font-semibold rounded-md hover:bg-slate-800 hover:border-slate-700 transition-colors duration-300"
               >
-                LinkedIn
+                <Linkedin size={18} /> LinkedIn
               </a>
             </div>
           </div>
           <div className="flex justify-center md:justify-end">
-            <img 
-              src={heroImg} 
-              alt="Diwas Mainali" 
-              className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-2 border-gray-800"
-            />
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur-lg opacity-60 group-hover:opacity-80 transition duration-500"></div>
+              <img 
+                src={heroImg} 
+                alt="Diwas Mainali" 
+                className="relative w-72 h-72 md:w-80 md:h-80 rounded-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -127,43 +168,43 @@ const Home = () => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="min-h-screen bg-gray-950 text-white py-20">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-4xl font-light mb-16 text-center">Personal Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="projects" className="bg-slate-950 text-slate-300 py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tighter text-slate-100">Featured Projects</h2>
+          <p className="mt-3 text-slate-400">A selection of projects that showcase my passion for full-stack development and problem-solving.</p>
+        </div>
+        <div className="mt-16 space-y-20">
           {projects.map((project, index) => (
-            <div key={index} className="bg-gray-900 rounded-lg overflow-hidden hover:bg-gray-800 transition-colors duration-200 border border-gray-800">
-              <div className="aspect-video overflow-hidden">
+            <div key={project.name} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className={`relative rounded-xl overflow-hidden shadow-2xl shadow-slate-900/80 border border-slate-800 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <img 
                   src={project.image} 
                   alt={project.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-medium mb-3 text-white">{project.name}</h3>
-                <p className="text-gray-400 mb-4 leading-relaxed text-sm">{project.description}</p>
-                <p className="text-xs text-gray-500 mb-6 font-mono">{project.tech}</p>
-                <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-gray-300 hover:text-white transition-colors duration-200 underline underline-offset-4"
-                  >
-                    View Code
-                  </a>
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-gray-300 hover:text-white transition-colors duration-200 underline underline-offset-4"
-                    >
-                      Live Demo
-                    </a>
-                  )}
+
+              <div className={`text-center lg:text-left ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
+                <h3 className="text-2xl font-semibold text-slate-100">{project.name}</h3>
+                <p className="mt-3 text-slate-400 leading-relaxed">{project.description}</p>
+                <div className="mt-4 flex flex-wrap justify-center lg:justify-start gap-2">
+                  {project.tech.map(tech => (
+                    <span key={tech} className="bg-cyan-900/50 text-cyan-300 text-xs font-medium px-3 py-1 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
                 </div>
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 group mt-6 hover:text-cyan-300 transition-colors duration-200"
+                >
+                  Live Demo
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
               </div>
             </div>
           ))}
@@ -175,42 +216,35 @@ const Projects = () => {
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen bg-black text-white py-20">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-4xl font-light mb-16 text-center">About</h2>
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
+    <section id="about" className="bg-slate-950 text-slate-300 py-24 sm:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
+          <div className="lg:col-span-1">
+             <h2 className="text-3xl sm:text-4xl font-bold tracking-tighter text-slate-100">About Me</h2>
+          </div>
+          <div className="lg:col-span-2 space-y-5 text-base text-slate-400 leading-relaxed">
             <p>
-              I'm a final-year Computer Science student at UNSW with hands-on experience in full-stack development. 
-              Currently founder of Cram and Conquer, a productivity platform built with React, Node.js, and MongoDB.
+              I'm a final-year Computer Science student at UNSW, deeply engaged in the world of full-stack development. My journey began with a curiosity for how things work, which has since evolved into a passion for building robust and user-centric web applications.
             </p>
             <p>
-              My professional experience includes working as an AI Frontend Development Trainer at Outlier, 
-              where I help train AI systems to improve frontend development capabilities, and as a Retention Specialist 
-              at Volkswagen Financial Services.
+              My experience spans the entire development lifecycle, from architecting scalable back-ends with Node.js and modern databases to creating dynamic, responsive front-ends with frameworks like React and Next.js. I thrive on solving complex problems and turning innovative ideas into reality.
             </p>
             <p>
-              I specialize in modern web technologies including React.js, Node.js, MongoDB, and have experience 
-              with Python, C++, and various other technologies. I'm passionate about creating clean, scalable 
-              applications that solve real-world problems.
-            </p>
-            <p>
-              When I'm not coding, you'll find me playing chess or tennis – activities that have helped me 
-              develop strategic thinking and problem-solving skills that I bring to my development work.
+              Beyond coding, I'm an avid chess and tennis player. These pursuits have taught me the importance of strategic thinking and persistence—qualities I bring to every project I undertake.
             </p>
           </div>
-          
-          <div className="mt-12 pt-8 border-t border-gray-800">
-            <h3 className="text-xl font-medium mb-6 text-white">Technical Skills</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-              <div>
-                <h4 className="text-gray-300 mb-2 font-medium">Languages</h4>
-                <p className="text-gray-500">Python • JavaScript • TypeScript • C • C++ • HTML • CSS • Bash</p>
-              </div>
-              <div>
-                <h4 className="text-gray-300 mb-2 font-medium">Technologies</h4>
-                <p className="text-gray-500">React.js • Node.js • MongoDB • Express.js • Tailwind CSS • Git</p>
-              </div>
+        </div>
+
+        <div className="mt-20 pt-12 border-t border-slate-800/50">
+          <h3 className="text-2xl font-bold text-center text-slate-200 mb-10">Technical Proficiencies</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12 max-w-4xl mx-auto">
+            <div>
+              <h4 className="text-lg font-semibold text-cyan-400 mb-4 text-center md:text-left">Languages</h4>
+              <p className="text-slate-400 leading-relaxed font-mono text-center md:text-left">Python • JavaScript (ES6+) • TypeScript • C • C++ • HTML5 • CSS3 • Bash</p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-cyan-400 mb-4 text-center md:text-left">Technologies & Frameworks</h4>
+              <p className="text-slate-400 leading-relaxed font-mono text-center md:text-left">React.js • Next.js • Node.js • Express.js • MongoDB • PostgreSQL • Prisma • RESTful APIs • Tailwind CSS • Git</p>
             </div>
           </div>
         </div>
@@ -219,13 +253,26 @@ const About = () => {
   );
 };
 
+const Footer = () => {
+  return (
+    <footer className="bg-slate-950 border-t border-slate-800/50 py-6">
+      <div className="max-w-7xl mx-auto px-6 text-center text-sm text-slate-500">
+        <p>&copy; {new Date().getFullYear()} Diwas Mainali. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+}
+
 const App = () => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-slate-950 selection:bg-cyan-500/30">
       <NavBar />
-      <Home />
-      <Projects />
-      <About />
+      <main>
+        <Home />
+        <Projects />
+        <About />
+      </main>
+      <Footer />
     </div>
   );
 };
