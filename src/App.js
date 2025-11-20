@@ -9,18 +9,18 @@ import heroImg from "./assets/hero1.png";
 
 const projects = [
   { 
+    name: "Cram and Conquer", 
+    description: "A productivity platform designed for students, offering real-time group study sessions, customisable Pomodoro timers, and insightful user analytics. Used stripe for payment processing and authentication using CSRF-protected JWT tokens.",
+    tech: ["React", "Node.js", "MongoDB", "Express.js"],
+    image: cramAndConquerImg,
+    demo: "https://cramandconquer.com" 
+  },
+  { 
     name: "GridBase", 
     description: "A full-stack Airtable clone featuring a high-performance virtualized data grid, real-time cell editing, and a dynamic, multi-filter query engine.",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "tRPC", "Prisma"],
     image: gridBaseImg,
     demo: "https://gridbase-diwas.vercel.app/" 
-  },
-  { 
-    name: "Cram and Conquer", 
-    description: "A productivity platform designed for students, offering real-time group study sessions, customizable Pomodoro timers, and insightful user analytics.",
-    tech: ["React", "Node.js", "MongoDB", "Express.js"],
-    image: cramAndConquerImg,
-    demo: "https://cramandconquer.com" 
   },
   {
     name: "Piccio Lab",
@@ -31,7 +31,7 @@ const projects = [
   },
   { 
     name: "Gambit Guru", 
-    description: "An interactive chess openings trainer built with a drag-and-drop interface that allows users to practice and master customizable opening lines.",
+    description: "An interactive chess openings trainer built with a drag-and-drop interface that allows users to practice and master customisable opening lines.",
     tech: ["JavaScript", "HTML", "CSS"],
     image: gambitGuruImg,
     demo: "https://diwasmainali1.github.io/Gambit-Guru/" 
@@ -123,7 +123,7 @@ const Home = () => {
               Full-Stack Developer & Computer Science Student
             </h2>
             <p className="text-base text-slate-400 mt-6 max-w-xl leading-relaxed">
-              Final-year student at UNSW with a passion for building elegant, high-performance web applications from concept to deployment.
+              A final-year student at UNSW with a passion for learning. Decently experienced in building full-stack web applications using modern frameworks.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <button
@@ -152,7 +152,7 @@ const Home = () => {
           </div>
           <div className="flex justify-center md:justify-end">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur-lg opacity-60 group-hover:opacity-80 transition duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-600 rounded-full blur-lg opacity-60 group-hover:opacity-80 transition duration-500"></div>
               <img 
                 src={heroImg} 
                 alt="Diwas Mainali" 
@@ -172,7 +172,7 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left">
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tighter text-slate-100">Featured Projects</h2>
-          <p className="mt-3 text-slate-400">A selection of projects that showcase my passion for full-stack development and problem-solving.</p>
+          <p className="mt-3 text-slate-400">The projects that I'm most proud of :)</p>
         </div>
         <div className="mt-16 space-y-20">
           {projects.map((project, index) => (
@@ -224,13 +224,12 @@ const About = () => {
           </div>
           <div className="lg:col-span-2 space-y-5 text-base text-slate-400 leading-relaxed">
             <p>
-              I'm a final-year Computer Science student at UNSW, deeply engaged in the world of full-stack development. My journey began with a curiosity for how things work, which has since evolved into a passion for building robust and user-centric web applications.
+              I'm a final-year Computer Science student at UNSW, with a genuine interest in full-stack development. I started coding to find a solution to practice chess openings as I was getting tired of learning them through YouTube videos. </p>
+            <p>
+              It was then that I learned HTML/CSS/JavaScript and built my first web app, Gambit Guru. Since then, I've been passionate about building web applications that solve real-world problems. My next massive project was Cram and Conquer, a productivity platform for students that I developed from scratch using React, Node.js, and MongoDB which is now live and being used by students around the world.
             </p>
             <p>
-              My experience spans the entire development lifecycle, from architecting scalable back-ends with Node.js and modern databases to creating dynamic, responsive front-ends with frameworks like React and Next.js. I thrive on solving complex problems and turning innovative ideas into reality.
-            </p>
-            <p>
-              Beyond coding, I'm an avid chess and tennis player. These pursuits have taught me the importance of strategic thinking and persistence—qualities I bring to every project I undertake.
+              Aside from coding, I enjoy reading, playing chess, and exploring new technologies. As I get older I realise that, being a developer is about adapting to change and always learning, and I love that aspect of this field.
             </p>
           </div>
         </div>
