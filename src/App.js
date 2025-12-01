@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Github, Linkedin } from 'lucide-react';
-
+import TechStack from './Techstack';
 import cramAndConquerImg from "./assets/cramandconquer.gif";
 import gridBaseImg from "./assets/GridBase.png";
 import piccioLabImg from "./assets/picciolab.png";
@@ -123,7 +123,7 @@ const Home = () => {
               Full-Stack Developer & Computer Science Student
             </h2>
             <p className="text-base text-slate-400 mt-6 max-w-xl leading-relaxed">
-              A final-year student at UNSW with a passion for learning. Decently experienced in building full-stack web applications using modern frameworks.
+              A final-year student at UNSW with a passion for learning. Accomplished in building full-stack, scalable web applications using modern frameworks.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <button
@@ -234,19 +234,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="mt-20 pt-12 border-t border-slate-800/50">
-          <h3 className="text-2xl font-bold text-center text-slate-200 mb-10">Technical Proficiencies</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12 max-w-4xl mx-auto">
-            <div>
-              <h4 className="text-lg font-semibold text-cyan-400 mb-4 text-center md:text-left">Languages</h4>
-              <p className="text-slate-400 leading-relaxed font-mono text-center md:text-left">Python • JavaScript (ES6+) • TypeScript • C • C++ • HTML5 • CSS3 • Bash</p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-cyan-400 mb-4 text-center md:text-left">Technologies & Frameworks</h4>
-              <p className="text-slate-400 leading-relaxed font-mono text-center md:text-left">React.js • Next.js • Node.js • Express.js • MongoDB • PostgreSQL • Prisma • RESTful APIs • Tailwind CSS • Git</p>
-            </div>
-          </div>
-        </div>
+        <TechStack />
       </div>
     </section>
   );
