@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Layout, Server, Database, Code2, Wrench } from 'lucide-react';
+import { Layout, Server, Database, Code2 } from 'lucide-react';
 
 const TechStack = () => {
   const categories = [

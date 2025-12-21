@@ -116,12 +116,6 @@ const NavBar = () => {
 
 const LinkPreview = ({ href, children, videoSrc }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
 
   return (
     <a
@@ -131,7 +125,6 @@ const LinkPreview = ({ href, children, videoSrc }) => {
       className="relative inline-block font-semibold text-primary-600 no-underline transition-colors hover:text-primary-700 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
     >
       {children}
       {isHovered && (
